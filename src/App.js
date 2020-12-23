@@ -4,12 +4,18 @@ import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Profile } from "./pages/Profile";
+import { Alert } from "./components/Alert";
+import { AlertState } from "./context/alert/alertState";
 
 function App() {
   return (
+    <AlertState>
     <BrowserRouter>
       <Navbar></Navbar>
       <div className="container pt-4">
+        <Alert alert={{
+          text: 'test alert'
+        }}></Alert>
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/about" component={About}></Route>
@@ -17,6 +23,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
+    </AlertState>
   );
 }
 
